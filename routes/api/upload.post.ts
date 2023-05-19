@@ -4,10 +4,10 @@ import {createHash} from 'crypto'
 
 export default eventHandler(async (event) => {
   const form = await readMultipartFormData(event)
-  const AssetsBaseURL = 'http://' + event.req.headers.host + '/_dist'
+  const AssetsBaseURL = 'http://' + event.req.headers.host + '/file'
   const res = []
 
-  const fileDir = `public/_dist/${dayjs().format('YYYY-MM-DD')}`
+  const fileDir = `data/${dayjs().format('YYYY-MM-DD')}`
   if (!fse.existsSync(fileDir))
     await fse.mkdir(fileDir)
   
