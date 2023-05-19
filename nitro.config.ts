@@ -8,8 +8,19 @@ export default defineNitroConfig({
       baseURL: '/_dist',
       dir: './public/_dist',
       maxAge: 60 * 60 * 24 * 365
+    },
+    {
+      baseURL: '/data',
+      dir: './data',
+      maxAge: 60 * 60 * 24 * 365
     }
   ],
+  storage: {
+    'db': {
+      driver: 'fs',
+      base: './data/db'
+    }
+  },
   errorHandler: './error',
   devErrorHandler: errorHandler
 
