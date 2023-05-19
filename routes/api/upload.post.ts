@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import {createHash} from 'crypto'
+import { createHash } from 'crypto'
 
 export default eventHandler(async (event) => {
   const form = await readMultipartFormData(event)
@@ -13,8 +13,7 @@ export default eventHandler(async (event) => {
       filename: item.filename,
       url: `${AssetsBaseURL}/${dayjs().format('YYYY-MM-DD')}/${fileName}.${extendName}`
     })
-
-    await useStorage().setItemRaw(`file/${dayjs().format('YYYY-MM-DD')}/${fileName}.${extendName}`,item.data)
+    await useStorage().setItemRaw(`file/${dayjs().format('YYYY-MM-DD')}/${fileName}.${extendName}`, item.data)
   })
 
   return {

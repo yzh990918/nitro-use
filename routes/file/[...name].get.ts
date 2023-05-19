@@ -1,5 +1,5 @@
 import path from 'path'
-import {Readable} from 'stream'
+import { Readable } from 'stream'
 
 export default defineEventHandler(async (event) => {
   const filePath = path.join('file',event.context.params.name);
